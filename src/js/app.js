@@ -14,13 +14,11 @@ export default function orderByProps(character, order) {
     if (next.key < current.key) {
       return -1;
     }
-    if (next.key > current.key) {
-      return 1;
-    }
-    return 0;
+      
+    return 1;
   });
 
-  if (order !== undefined) {
+  if (order) { //если order !== undefined
     order.reverse().forEach((item) => {
       const similarIndex = massivProp.findIndex((massivPropItem) => massivPropItem.key === item);
       massivProp.unshift(massivProp[similarIndex]);
